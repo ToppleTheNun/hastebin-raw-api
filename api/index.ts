@@ -7,6 +7,8 @@ const postRawContentsToHasteBin = async (contents: string): Promise<string> => {
 };
 
 export default async (req: NowRequest, res: NowResponse) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "OPTIONS,POST");
   try {
     if (req.method?.toLowerCase() === "post") {
       const rawContents = await postRawContentsToHasteBin(req.body);
