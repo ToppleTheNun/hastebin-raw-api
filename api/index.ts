@@ -3,7 +3,7 @@ import axios from "axios";
 
 const postRawContentsToHasteBin = async (contents: string): Promise<string> => {
   const resp = await axios.post("https://hastebin.com/documents", contents);
-  return `https://hastebin.com/${resp.data.code}`;
+  return `https://hastebin.com/${resp.data.key}`;
 };
 
 export default async (req: NowRequest, res: NowResponse) => {
